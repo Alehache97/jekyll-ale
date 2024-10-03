@@ -1,18 +1,42 @@
 ---
-title: Colophon
+title: Sobre Mí
 permalink: /about/
 layout: page
-excerpt: Hello peeps, I'm student of computer science from Banyuwangi, living in Jogjakarta. This blog for documentation about my programming journey, running on jekyll, hosting on netlify and using my own simple theme.
+excerpt: Información acerca de mí.
 comments: false
 ---
 
-He's a student from Banyuwangi, living in Jogjakarta. the blog for documentation about his programming 🎒 journey, running on jekyll, hosting on [now.sh](http://now.sh) and using his own theme, he name it <a href="https://github.com/piharpi/jekyll-klise" target="_blank" rel="noopener">klisé</a>, he also loves to learning web technology; but he often forgot, that a reason why him doing the writing.
+# Bienvenid@s a la página personal de **Alejandro Herrera Jiménez**
 
-If you have a question about him or else, just send a letter to him.
+<div style="text-align: center;">
+   <img src="/assets/img/yo.png" alt="Foto de perfil de Alejandro Herrera Jiménez" width="200" style="border-radius: 50%;">
+</div>
 
-You can [report](http://github.com/piharpi/jekyll-klise/issues/new) if there is an broken link(s) or somethings else.
+_Soy de **Alcalá de Guadaíra** (Sevilla) y me considero un apasionado por la informática y las nuevas tecnologías. Actualmente soy estudiante del 2º Curso de Ciclo Formativo de Grado Superior de Administración de Sistemas Informáticos en Red en IES Gonzalo Nazareno._
+ 
+---
 
-**may u needs ✨**
+## Objetivo del Proyecto
 
-- {{ site.author.email }}
-- github.com/{{ site.author.github }}
+El objetivo de esta página no es otro que brindar a la comunidad diferentes posts y recursos sobre informática.
+
+Espero que este espacio os guste y os sea útil. Si queréis colaborar con este proyecto o simplemente hacerme alguna pregunta, no dudéis en [contactarme](mailto:{{ site.author.email }}). ¡Estoy abierto a nuevas ideas y colaboraciones! 
+
+Si queréis ver los proyectos que he realizado, podéis acceder a mis repositorios en mi perfil de [GitHub](https://github.com/{{ site.author.github }}).
+
+### Competencias 💻
+
+Aquí tenéis algunas de mis principales competencias en el ámbito de la informática:
+
+1. **Administración de Sistemas Operativos.**
+2. **Servicios de Red e Internet.**
+3. **Implantación de Aplicaciones Web.**
+4. **Administración de Sistemas Gestores de Bases de Datos.**
+5. **Seguridad y Alta Disponibilidad.**
+
+### ✨ Enlaces de interés ✨
+
+Si deseas ponerte en contacto conmigo o saber más sobre mi trabajo, aquí tienes algunos enlaces de interés:
+
+- 📧 [Correo Electrónico](mailto:{{ site.author.email }})
+- 💻 [GitHub](https://github.com/{{ site.author.github }})

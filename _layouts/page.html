@@ -3,9 +3,18 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en " }}">
+<html lang="{{ page.lang | default: site.lang | default: "es" }}">
 
-{% include header.html %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>
+    .justificado {
+      text-align: justify; /* Justifica el texto */
+    }
+  </style>
+</head>
 
 <body data-theme="{{ site.mode }}" class="notransition">
 
@@ -22,9 +31,9 @@ layout: compress
         localStorage.setItem("theme", data);
       }
     };
- 
+
     initTheme(localStorage.getItem("theme"));
-    
+
     setTimeout(() => body.classList.remove("notransition"), 75);
   </script>
 
@@ -33,11 +42,10 @@ layout: compress
     <header class="header">
       <h1 class="header-title center" itemprop="headline">{{ page.title | escape }}.</h1>
     </header>
-    <main class="page-content" aria-label="Content">
-      {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=4 h_max=4 %}
+    <main class="page-content justificado" aria-label="Content"> <!-- Aquí se aplica la clase -->
+      {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true %}
     </main>
     {% include footer.html %}
   </div>
 </body>
-
 </html>
