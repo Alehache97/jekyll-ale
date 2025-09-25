@@ -6,22 +6,50 @@ excerpt: Sorted article by tags.
 ---
 
 <div class="archive-tags">
-  <a class="tag-item" href="#">all</a>
+  <a class="tag-item" href="#" data-filter="all">all</a>
   {%- for tag in site.tags -%} 
     {% capture name %}{{ tag | first }}{% endcapture %}
-    <a class="tag-item" href="#{{name}}">{{ name }}</a> 
+    <a class="tag-item" href="#" data-filter="{{ name | downcase }}">{{ name }}</a> 
   {%- endfor -%}
 </div>
 
-{%- for tag in site.tags -%}
-  {%- capture name -%}{{ tag | first }}{%- endcapture -%}
-  <h2 id="{{ name }}">{{ name | upcase }}</h2>
-  {%- for post in site.tags[name] -%}
-    <article class="post-item" id="results-container">
-      <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
-      <h3 class="post-item-title">
-        <a href="{{ post.url }}">{{ post.title | escape }}</a>
-      </h3> 
-    </article>
+<div id="posts-container">
+  {%- for tag in site.tags -%}
+    {%- capture name -%}{{ tag | first }}{%- endcapture -%}
+    <h2 class="tag-header" data-tag="{{ name | downcase }}">{{ name | upcase }}</h2>
+    {%- for post in site.tags[name] -%}
+      <article class="post-item"
+               data-tag="{{ name | downcase }}">
+        <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        <h3 class="post-item-title">
+          <a href="{{ post.url }}">{{ post.title | escape }}</a>
+        </h3> 
+      </article>
+    {%- endfor -%}
   {%- endfor -%}
-{%- endfor -%}
+</div>
+
+<script>
+  const tagLinks = document.querySelectorAll(".tag-item");
+  const posts = document.querySelectorAll("#posts-container .post-item");
+  const headers = document.querySelectorAll("#posts-container .tag-header");
+
+  tagLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const filter = link.getAttribute("data-filter");
+
+      if (filter === "all") {
+        posts.forEach(p => p.style.display = "");
+        headers.forEach(h => h.style.display = "");
+      } else {
+        posts.forEach(p => {
+          p.style.display = p.getAttribute("data-tag") === filter ? "" : "none";
+        });
+        headers.forEach(h => {
+          h.style.display = h.getAttribute("data-tag") === filter ? "" : "none";
+        });
+      }
+    });
+  });
+</script>

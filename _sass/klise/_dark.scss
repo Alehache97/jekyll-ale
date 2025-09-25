@@ -3,12 +3,7 @@ body[data-theme="dark"] {
   background-color: $dark-black;
 
   // Heading
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     color: $dark-white;
   }
 
@@ -18,46 +13,32 @@ body[data-theme="dark"] {
       color: $dark-white;
       border-color: $dark-light;
     }
-
-    th,
-    td,
-    tr {
+    th, td, tr {
       border-color: $dark-light;
     }
   }
 
-  // Post
+  // Post content
   .page-content {
     a {
-      color: $dark-text-link-blue;
-
-      &:hover,
-      &:active,
-      &:focus {
-        color: $dark-text-link-blue-active;
+      color: #00ff00; // verde terminal
+      &:hover, &:active, &:focus {
+        color: #00ff00; // verde terminal
       }
     }
-
     h3 {
       border-color: $dark-light;
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
       .anchor-head {
-        color: $dark-text-link-blue;
+        color: #00ff00;
       }
     }
   }
 
   // Syntax
-  code {
-    &.highlighter-rouge {
-      background-color: $dark-light;
-    }
+  code.highlighter-rouge {
+    background-color: $dark-light;
   }
 
   // kbd tag
@@ -75,33 +56,27 @@ body[data-theme="dark"] {
   // Post Meta
   .post-meta {
     color: $dark-gray;
-
-    time {
-      &::after {
-        background-color: $dark-light;
-      }
+    time::after {
+      background-color: $dark-light;
     }
-
     span[itemprop="author"] {
       border-color: $dark-light;
     }
   }
 
-  // Link
+  // Links
   a {
     color: inherit;
     text-decoration-color: $dark-smoke;
-
     &:hover {
-      color: $dark-text-link-blue;
+      color: #00ff00; // verde terminal
     }
-
     &:focus {
-      outline-color: rgba(255, 82, 119, 0.6);
+      outline-color: rgba(0, 255, 0, 0.6);
     }
   }
 
-  // List
+  // Lists
   li {
     &:before {
       color: $dark-white;
@@ -114,36 +89,45 @@ body[data-theme="dark"] {
     border-color: $dark-light;
   }
 
-  // Strong, Bold
-  strong,
-  b {
+  // Strong / Bold
+  strong, b {
     color: $dark-white;
   }
 
   // Navbar
   .navbar {
     border-color: $dark-light;
+
     .menu {
       a#mode {
-        .mode-sunny {
-          display: block;
-        }
-        .mode-moon {
-          display: none;
-        }
+        .mode-sunny { display: block; }
+        .mode-moon { display: none; }
       }
 
       .menu-link {
         color: $dark-white;
+
+        &.active {
+          color: #00ff00;               // texto verde terminal
+          border-bottom: 2px solid #00ff00; // línea/indicador verde
+          background-color: transparent; // quitar fondo rosa
+        }
+        &.active::before,
+        &.active::after {
+          background-color: #00ff00; // pseudo-elementos si la plantilla los usa
+        }
+
+        &:hover {
+          color: #00ff00; // verde terminal al pasar el ratón
+        }
       }
+
       @include media-query($on-mobile) {
         background-color: $dark-black;
         border-color: $dark-light;
 
-        .menu-icon {
-          > svg {
-            fill: $dark-white;
-          }
+        .menu-icon > svg {
+          fill: $dark-white;
         }
 
         input[type="checkbox"]:checked ~ .trigger {
@@ -158,18 +142,13 @@ body[data-theme="dark"] {
     &:not(:first-child) {
       border-color: $dark-light;
     }
-
     .post-item-date {
       color: $dark-white;
     }
-    .post-item-title {
-      a {
-        color: $dark-text-base-color;
-
-        &:hover,
-        &focus {
-          color: $dark-white;
-        }
+    .post-item-title a {
+      color: $dark-text-base-color;
+      &:hover, &:focus {
+        color: $dark-white;
       }
     }
   }
@@ -177,27 +156,21 @@ body[data-theme="dark"] {
   // Post Navigation
   .post-nav {
     border-color: $dark-light;
-
     .post-nav-item {
       font-weight: $bold-weight;
-
       .post-title {
         color: $dark-white;
         opacity: 0.9;
       }
-
-      &:hover,
-      &:focus {
+      &:hover, &:focus {
         .post-title {
-          color: $dark-text-link-blue-active;
+          color: #00ff00; // verde terminal
         }
       }
-
       .nav-arrow {
         color: $dark-gray;
       }
     }
-
     @include media-query($on-mobile) {
       .post-nav-item:nth-child(even) {
         border-color: $dark-light;
@@ -207,9 +180,7 @@ body[data-theme="dark"] {
 
   // Footer
   .footer {
-    span.footer_item {
-      color: $dark-white;
-    }
+    span.footer_item,
     a.footer_item:not(:last-child) {
       color: $dark-white;
     }
@@ -221,27 +192,19 @@ body[data-theme="dark"] {
 
   // 404 Page
   .not-found {
-    .title {
-      color: $dark-white;
-      text-shadow: 1px 0px 0px $dark-text-link-blue;
-    }
-    .phrase {
-      color: $dark-text-base-color;
-    }
+    .title { color: $dark-white; text-shadow: 1px 0 0 #00ff00; }
+    .phrase { color: $dark-text-base-color; }
     .solution {
-      color: $dark-text-link-blue;
+      color: #00ff00; // verde terminal
+      &:hover { color: #00ff00; }
     }
-    .solution:hover {
-      color: $dark-text-link-blue-active;
-    }
-  }  
+  }
 
-  .search-article {
-    input[type="search"] {
-      color: $dark-text-base-color;
-      &::-webkit-input-placeholder {
-        color: rgba(128,128,128,0.8);
-      }
+  // Search Article
+  .search-article input[type="search"] {
+    color: $dark-text-base-color;
+    &::-webkit-input-placeholder {
+      color: rgba(128,128,128,0.8);
     }
   }
 }

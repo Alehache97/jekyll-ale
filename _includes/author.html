@@ -1,9 +1,27 @@
-<div class="author">
-  <img
-    class="author-avatar"
-    src="{{ site.author.avatar }}"
-    alt="{{ site.author.username }}"
-  />
-  <h2 class="author-name">{{ site.author.name }}</h2>
+<div class="author-wrapper">
+  <div class="author">
+    <img
+      class="author-avatar"
+      src="{{ site.author.avatar }}"
+      alt="{{ site.author.username }}"
+    />
+    <h2 class="author-name">{{ site.author.name }}</h2>
+    <h3 class="author-subtitle">
+      <span class="prompt-symbol">#</span>
+      <span class="typing-text"> Alejandro Herrera Jiménez</span>
+    </h3>
+  </div>
+
   <p class="author-bio">{{ site.author.bio }}</p>
+
+  <!-- Párrafo final con el propósito del blog -->
+  <p class="author-purpose">
+    El propósito de este blog personal o portfolio es compartir y demostrar mis conocimientos técnicos y aprendizajes con la comunidad a través de diferentes posts, promoviendo la visibilidad de mi perfil profesional y buscando el desarrollo continuo.
+  </p>
+</div>
+
+<div class="linkedin-button-container">
+  <a href="https://www.linkedin.com/in/alejandro-herrera-jimenez-3273ab230/" target="_blank" class="linkedin-button">
+    <i class="fab fa-linkedin"></i> Visita mi perfil en LinkedIn
+  </a>
 </div>

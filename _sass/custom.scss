@@ -1,0 +1,246 @@
+.author-wrapper {
+  margin: 0; /* elimina márgenes extra del contenedor */
+  padding: 0;
+}
+
+/* Contenedor principal del autor */
+.author {
+  margin-bottom: 2em; /* espacio reducido entre author y author-bio */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Nombre principal estilo terminal */
+.author-name {
+  font-family: "Fira Code", monospace;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: center;
+  color: #00ff00;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+  margin-bottom: 0.2em; /* menos espacio entre name y subtitle */
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #00ff00;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    margin-top: 5px;
+  }
+}
+
+/* Subtítulo estilo terminal */
+.author-subtitle {
+  font-family: "Fira Code", monospace;
+  font-size: 1.2em;
+  color: #00ff00; /* mismo verde que el nombre */
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.3em 0; /* margen inferior reducido */
+}
+
+/* Símbolo de prompt fijo */
+.prompt-symbol {
+  font-weight: bold;
+}
+
+/* Contenedor del texto que se escribe */
+.typing-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ff00; /* cursor parpadeante */
+  width: 0ch;
+  animation: typing 3s steps(26, end) forwards, blink-then-hide 3s forwards;
+}
+
+/* Animación de tipeo */
+@keyframes typing {
+  from { width: 0ch; }
+  to { width: 26ch; }
+}
+
+/* Animación de cursor: parpadea y luego desaparece */
+@keyframes blink-then-hide {
+  0%, 80% { border-color: #00ff00; }
+  90%, 100% { border-color: transparent; }
+}
+
+/* Avatar del autor */
+.author-avatar {
+  border: 3px solid #00ff00; 
+  border-radius: 50%; 
+  padding: 3px; 
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.7); 
+  width: 120px; 
+  height: 120px; 
+  object-fit: cover; 
+  animation: blink-border 1s step-start infinite;
+}
+
+@keyframes blink-border {
+  0%, 50%, 100% { border-color: #00ff00; box-shadow: 0 0 8px rgba(0, 255, 0, 0.7); }
+  25%, 75% { border-color: transparent; box-shadow: 0 0 8px rgba(0, 255, 0, 0); }
+}
+
+/* Texto de la bio */
+.author-bio {
+  width: 100%;            /* ocupa todo el ancho de la página */
+  max-width: 100%;
+  margin: 0.5em auto 1em auto; /* espacio superior reducido, inferior opcional */
+  padding: 0;
+  text-align: justify;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.author-purpose {
+  margin-bottom: 3em;  /* espacio solo debajo del párrafo */
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.6;
+  text-align: justify; /* opcional */
+  color: inherit;      /* mantiene el color por defecto */
+}
+
+
+/* ==== Estilos para la sección de Competencias ==== */
+.competencias-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.competencia-card {
+  background-color: var(--background-secondary, #1e1e1e);
+  color: var(--text-primary, #fff);
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+.competencia-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* ✅ Títulos adaptativos azul brillante */
+.competencia-card h4 {
+  color: var(--accent-color, #33aaff);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.competencia-card h4::first-letter {
+  font-size: 1.3rem;
+}
+
+.competencia-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Variables dinámicas */
+:root {
+  --accent-color: #0077ff; /* azul fuerte y legible en light */
+}
+body[data-theme="dark"] {
+  --accent-color: #33aaff; /* azul clarito brillante en dark */
+}
+
+/* Estilo del contenedor del botón */
+.linkedin-button-container {
+  text-align: center;
+  margin: 20px 0;
+
+  .linkedin-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    background-color: transparent;      // fondo transparente
+    color: #00ff00;                     // mismo verde que author-name
+    font-family: "Fira Code", monospace; // misma fuente que author
+    font-weight: bold;
+    font-size: 1em;
+    border: 2px solid #00ff00;         // borde verde neón
+    border-radius: 5px;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+
+    i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: #00ff00;       // verde brillante al pasar el mouse
+      color: #131418;                  // texto oscuro para contraste
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(0, 255, 0, 1);
+    }
+  }
+}
+
+/* Indicador de menú activo (solo menú superior) */
+.menu-link.active {
+  color: #00ff00; /* texto verde terminal */
+  border-bottom: 2px solid #00ff00; /* línea/indicador verde */
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+.menu-link.active:hover {
+  color: #00ff00;
+}
+
+.page-content.justificado {
+  text-align: justify;
+  text-justify: inter-word; // opcional, mejora el espaciado
+}
+
+
+.archive-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  .tag-item {
+    color: var(--main-color);           // color dinámico según tema
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      text-shadow: 0 0 8px var(--main-shadow);
+      transform: scale(1.05);
+    }
+    
+    &.active {
+      text-decoration: underline;
+      text-shadow: 0 0 10px var(--main-shadow);
+    }
+  }
+}

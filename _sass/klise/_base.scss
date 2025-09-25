@@ -22,21 +22,9 @@ html {
 }
 
 body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-hr,
-dl,
-dd,
-ol,
-ul,
-figure {
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0;
 }
@@ -59,33 +47,17 @@ body {
   box-sizing: border-box;
 }
 
-// Set `margin-bottom` to maintain vertical rhythm
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-ul,
-ol,
-dl,
-figure,
-%vertical-rhythm {
+// Headings and rhythm
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm {
   margin-top: $spacing-full - 20;
   margin-bottom: $spacing-full - 20;
 }
 
-// strong | bold
-strong,
-b {
+strong, b {
   font-weight: $bold-weight;
   color: $black;
 }
 
-// horizontal rule
 hr {
   border-bottom: 0;
   border-style: solid;
@@ -109,7 +81,7 @@ kbd {
   text-shadow: 0 1px 0 $white;
 }
 
-// Image
+// Images
 img {
   max-width: 100%;
   vertical-align: middle;
@@ -118,30 +90,14 @@ img {
   text-align: center;
 }
 
-// Figure
-figure {
-  position: relative;
-}
+figure { position: relative; }
+figure > img { display: block; position: relative; }
+figcaption { font-size: 13px; text-align: center; }
 
-// Image inside Figure tag
-figure > img {
-  display: block;
-  position: relative;
-}
-
-// Image caption
-figcaption {
-  font-size: 13px;
-  text-align: center;
-}
-
-// List
+// Lists
 ul {
   list-style: none;
-  li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-  }
+  li { display: list-item; text-align: -webkit-match-parent; }
   li::before {
     content: "\FE63";
     display: inline-block;
@@ -150,6 +106,7 @@ ul {
     position: relative;
     margin-left: -1.3em;
     font-weight: 700;
+    color: $black;
   }
 }
 
@@ -173,88 +130,39 @@ ol {
   }
 }
 
-ul,
-ol {
-  margin-top: 0;
-  margin-left: $spacing-full;
-}
+ul, ol { margin-top: 0; margin-left: $spacing-full; }
 
 li {
-  padding-bottom: 1px;
   padding-top: 1px;
-
-  &:before {
-    color: $black;
-  }
-
-  > ul,
-  > ol {
-    margin-bottom: 2px;
-    margin-top: 0;
-  }
+  padding-bottom: 1px;
+  > ul, > ol { margin-top: 0; margin-bottom: 2px; }
 }
 
 // Headings
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: $black;
   font-weight: $bold-weight;
-  & + ul,
-  & + ol {
-    margin-top: 10px;
-  }
-
-  @include media-query($on-mobile) {
-    scroll-margin-top: 65px;
-  }
+  & + ul, & + ol { margin-top: 10px; }
+  @include media-query($on-mobile) { scroll-margin-top: 65px; }
 }
 
 // Headings with link
-h1 > a,
-h2 > a,
-h3 > a,
-h4 > a,
-h5 > a,
-h6 > a {
-  text-decoration: none;
-  border: none;
-
-  &:hover {
-    text-decoration: none;
-    border: none;
-  }
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+  text-decoration: none; border: none;
+  &:hover { text-decoration: none; border: none; }
 }
 
-// Link
+// Links
 a {
-  color: inherit;
+  color: #00ff00; // verde terminal
   text-decoration-color: $smoke;
-
-  &:hover {
-    color: $text-link-blue;
-  }
-
-  &:focus {
-    outline: 3px solid rgba(0, 54, 199, 0.6);
-    outline-offset: 2px;
-  }
+  &:hover { color: #00ff00; }
+  &:focus { outline: 3px solid rgba(0, 255, 0, 0.6); outline-offset: 2px; }
 }
 
-// Del
-del {
-  color: inherit;
-}
+// Block elements
+del, em { color: inherit; }
 
-// Em
-em {
-  color: inherit;
-}
-
-// Blockquotes
 blockquote {
   color: $gray;
   font-style: italic;
@@ -266,61 +174,34 @@ blockquote {
   margin-left: 10px;
   margin-right: 10px;
   font-size: 1em;
-
-  > :last-child {
-    margin-bottom: 0;
-    margin-top: 0;
-  }
+  > :last-child { margin-bottom: 0; margin-top: 0; }
 }
 
 // Wrapper
 .wrapper {
-  max-width: -webkit-calc(#{$narrow-size} - (#{$spacing-full} * 2));
   max-width: calc(#{$narrow-size} - (#{$spacing-full} * 2));
   position: relative;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: $spacing-full;
-  padding-left: $spacing-full;
+  margin: 0 auto;
+  padding: 0 $spacing-full;
   @extend %clearfix;
 
   @include media-query($on-mobile) {
-    max-width: -webkit-calc(#{$narrow-size} - (#{$spacing-full}));
     max-width: calc(#{$narrow-size} - (#{$spacing-full}));
-    padding-right: $spacing-full - 10;
     padding-left: $spacing-full - 10;
-
-    &.blurry {
-      animation: 0.2s ease-in forwards blur;
-      -webkit-animation: 0.2s ease-in forwards blur;
-    }
+    padding-right: $spacing-full - 10;
+    &.blurry { animation: 0.2s ease-in forwards blur; -webkit-animation: 0.2s ease-in forwards blur; }
   }
 }
 
-// Underline
-u {
-  text-decoration-color: #d2c7c7;
-}
-
-// Small
-small {
-  font-size: $small-font-size;
-}
+// Underline and small
+u { text-decoration-color: #d2c7c7; }
+small { font-size: $small-font-size; }
 
 // Superscript
-sup {
-  border-radius: 10%;
-  top: -3px;
-  left: 2px;
-  font-size: small;
-  position: relative;
-  margin-right: 2px;
-}
+sup { border-radius: 10%; top: -3px; left: 2px; font-size: small; position: relative; margin-right: 2px; }
 
 // Table
-.overflow-table {
-  overflow-x: auto;
-}
+.overflow-table { overflow-x: auto; }
 
 table {
   width: 100%;
@@ -334,36 +215,31 @@ table {
     border-bottom: 1px solid $light;
   }
 
-  th,
-  td,
-  tr {
-    border: 1px solid $light;
-    padding: 2px 7px;
-  }
+  th, td, tr { border: 1px solid $light; padding: 2px 7px; }
 }
 
 // Clearfix
-%clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+%clearfix:after { content: ""; display: table; clear: both; }
 
-// When mouse block a text set this color
-mark,
-::selection {
-  background: #fffba0;
-  color: $black;
-}
+// Text selection
+mark, ::selection { background: #fffba0; color: $black; }
 
-// Github Gist clear border
-.gist {
-  table {
-    border: 0;
+// Github Gist
+.gist { table { border: 0; tr, td { border: 0; } } }
 
-    tr,
-    td {
-      border: 0;
+// Navbar menu active indicator
+.navbar {
+  .menu-link {
+    &.active {
+      color: #00ff00; // texto verde terminal
+      border-bottom: 2px solid #00ff00; // indicador verde
+      background-color: transparent; // quitar rosa
     }
+    &.active::before,
+    &.active::after {
+      background-color: #00ff00; // asegurar verde en pseudo-elementos
+    }
+    &:hover { color: #00ff00; }
   }
 }
+

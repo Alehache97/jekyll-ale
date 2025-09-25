@@ -1,5 +1,5 @@
 # Site settings
-title: OPENALE 3.0 # site title
+title: La Terminal de Macale # site title
 description: >- # site description
   Plataforma Educatica Informática
 lang: es-ES # default lang
@@ -10,15 +10,16 @@ mode: dark # default theme "dark" | "light"
 
 # Profile settings
 author:
-  name: OPENALE 3.0 # author name
+  name: ">_ La Terminal de Macale" # author name
+  subtitle: "Alejandro Herrera Jiménez"
   bio: >- # tell to the world
-    Proyecto de página web estática creada con Jekyll por Alejandro Herrera Jiménez para la asignatura de Implantación de Aplicaciones Web del curso de 2ºASIR del IES Gonzalo Nazareno.
+    Profesional en Administración de Sistemas Informáticos con experiencia en la gestión de infraestructuras tecnológicas y servicios. Durante mi formación como Técnico Superior en Administración de Sistemas Informáticos en Red en el IES Gonzalo Nazareno de Dos Hermanas (Sevilla), he desarrollado habilidades en la administración de sistemas operativos GNU/Linux (Debian, Ubuntu, RHEL, CentOS...) y Windows Server, así como en redes (VLAN, NAT, OSPF, IPv6, VPN) y seguridad (Iptables, Nftables, OpenSSL, GPG, OpenVPN, WireGuard). Cuento con experiencia en bases de datos SQL y NoSQL, virtualización y entornos cloud (Proxmox, KVM, LXC, OpenStack), metodologías DevOps (Docker, Kubernetes, Jenkins, GitHub Actions) y en Infraestructura como Código mediante Ansible y Vagrant. Además, he gestionado servidores web (Apache y Nginx), proxys inversos, balanceadores de carga (HAProxy), servidores DNS (BIND9) y servicios de correo electrónico (Postfix, Dovecot, SpamAssassin).
   username:
   github: Alehache97 # github username
   twitter: # twitter username
   facebook: 
-  email: alejandro@gmail.com # email adress
-  avatar: /assets/img/primo.jpg # change with your own avatar
+  email: alejandrohjasir@gmail.com # email adress
+  avatar: /assets/img/inicio.gif # change with your own avatar
 
 # URL settings
 url: "https://klise.now.sh" #
